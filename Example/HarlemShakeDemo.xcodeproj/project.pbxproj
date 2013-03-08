@@ -18,10 +18,10 @@
 		113DB06D16E9925200CBC36F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113DB06C16E9925200CBC36F /* Default-568h@2x.png */; };
 		113DB07016E9925200CBC36F /* HSDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113DB06F16E9925200CBC36F /* HSDViewController.m */; };
 		113DB07316E9925200CBC36F /* HSDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 113DB07116E9925200CBC36F /* HSDViewController.xib */; };
-		113DB07D16E99E0D00CBC36F /* harlem-shake.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 113DB07A16E99E0D00CBC36F /* harlem-shake.aiff */; };
 		113DB07E16E99E0D00CBC36F /* VLMHarlemShake.m in Sources */ = {isa = PBXBuildFile; fileRef = 113DB07C16E99E0D00CBC36F /* VLMHarlemShake.m */; };
 		113DB08016E99F1B00CBC36F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113DB07F16E99F1B00CBC36F /* QuartzCore.framework */; };
 		113DB08216E99F2200CBC36F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113DB08116E99F2200CBC36F /* AVFoundation.framework */; };
+		11D1BECD16EAA11900C0D59E /* HarlemShake.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 11D1BECC16EAA11900C0D59E /* HarlemShake.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +41,11 @@
 		113DB06E16E9925200CBC36F /* HSDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSDViewController.h; sourceTree = "<group>"; };
 		113DB06F16E9925200CBC36F /* HSDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSDViewController.m; sourceTree = "<group>"; };
 		113DB07216E9925200CBC36F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HSDViewController.xib; sourceTree = "<group>"; };
-		113DB07A16E99E0D00CBC36F /* harlem-shake.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "harlem-shake.aiff"; sourceTree = "<group>"; };
 		113DB07B16E99E0D00CBC36F /* VLMHarlemShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLMHarlemShake.h; sourceTree = "<group>"; };
 		113DB07C16E99E0D00CBC36F /* VLMHarlemShake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLMHarlemShake.m; sourceTree = "<group>"; };
 		113DB07F16E99F1B00CBC36F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		113DB08116E99F2200CBC36F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		11D1BECC16EAA11900C0D59E /* HarlemShake.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = HarlemShake.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		113DB07916E99E0D00CBC36F /* VLMHarlemShake */ = {
 			isa = PBXGroup;
 			children = (
-				113DB07A16E99E0D00CBC36F /* harlem-shake.aiff */,
+				11D1BECC16EAA11900C0D59E /* HarlemShake.mp3 */,
 				113DB07B16E99E0D00CBC36F /* VLMHarlemShake.h */,
 				113DB07C16E99E0D00CBC36F /* VLMHarlemShake.m */,
 			);
@@ -189,7 +189,7 @@
 				113DB06B16E9925200CBC36F /* Default@2x.png in Resources */,
 				113DB06D16E9925200CBC36F /* Default-568h@2x.png in Resources */,
 				113DB07316E9925200CBC36F /* HSDViewController.xib in Resources */,
-				113DB07D16E99E0D00CBC36F /* harlem-shake.aiff in Resources */,
+				11D1BECD16EAA11900C0D59E /* HarlemShake.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
