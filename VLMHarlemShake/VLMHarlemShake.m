@@ -60,7 +60,7 @@ typedef enum {
     self.shakingViews = [NSMutableArray array];
     self.shaking = NO;
     
-    NSURL *audioURL = [[NSBundle mainBundle] URLForResource:@"harlem-shake" withExtension:@"aiff"];
+    NSURL *audioURL = [[NSBundle mainBundle] URLForResource:@"HarlemShake" withExtension:@"mp3"];
     
     NSError *error = nil;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
