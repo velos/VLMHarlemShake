@@ -233,7 +233,7 @@ typedef enum {
         negative = 1;
     }
     
-    NSInteger offsetOne = (NSUInteger)(10 + 20 * seed) * negative;
+    NSInteger offsetOne = (NSInteger)((10 + 20. * seed) * negative);
     NSInteger offsetTwo = -offsetOne;
     
     NSValue *startingOffset = [NSValue valueWithCGSize:CGSizeZero];
