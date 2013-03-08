@@ -19,14 +19,14 @@ typedef enum {
 
 @interface VLMHarlemShake () <AVAudioPlayerDelegate>
 
-@property (strong) UIView *lonerView;
-@property (strong) NSMutableArray *shakingViews;
+@property (nonatomic, strong) UIView *lonerView;
+@property (nonatomic, strong) NSMutableArray *shakingViews;
 
-@property (copy) void(^completionBlock)();
+@property (nonatomic, copy) void(^completionBlock)();
 
-@property (strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
-@property (assign, getter = isShaking) BOOL shaking;
+@property (nonatomic, assign, getter = isShaking) BOOL shaking;
 
 // finds views that we might want to shake.
 - (void)_findViewsOfInterestWithCallback:(void(^)(UIView *viewOfInterest))callback;
@@ -90,11 +90,8 @@ typedef enum {
     // inspect the hierarchy.
     self.shakingViews = [NSMutableArray array];
     
-    // seed the random number generator.
-    srand(time(NULL));
-    
     // shake the loner view.
-    [self _shakeView:self.lonerView withShakeStyle:VLMShakeStyleThree randomSeed:(rand() / (CGFloat)RAND_MAX)];
+    [self _shakeView:self.lonerView withShakeStyle:VLMShakeStyleThree randomSeed:(arc4random() / (CGFloat)RAND_MAX)];
     
     double delayInSeconds = 15.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -104,9 +101,9 @@ typedef enum {
             [self.shakingViews addObject:viewOfInterest];
             
             // shake the view with a random animation.
-            [self _shakeView:viewOfInterest withShakeStyle:(rand() % VLMShakeStyleEnd) randomSeed:(rand() / (CGFloat)RAND_MAX)];
+            [self _shakeView:viewOfInterest withShakeStyle:(rand() % VLMShakeStyleEnd) randomSeed:(arc4random() / (CGFloat)RAND_MAX)];
             // shake it with another to create more animations.
-            [self _shakeView:viewOfInterest withShakeStyle:(rand() % VLMShakeStyleEnd) randomSeed:(rand() / (CGFloat)RAND_MAX)];
+            [self _shakeView:viewOfInterest withShakeStyle:(rand() % VLMShakeStyleEnd) randomSeed:(arc4random() / (CGFloat)RAND_MAX)];
         }];
     });
 }
@@ -202,8 +199,8 @@ typedef enum {
     }
     
     CATransform3D startingScale = CATransform3DIdentity;
-    CATransform3D secondScale = CATransform3DScale(CATransform3DIdentity, 1.0 + (seed * negative), 1.0 + (seed * negative), 1.0);
-    CATransform3D thirdScale = CATransform3DScale(CATransform3DIdentity, 1.0 + (seed * -negative), 1.0 + (seed * -negative), 1.0);
+    CATransform3D secondScale = CATransform3DScale(CATransform3DIdentity, 1.0f + (seed * negative), 1.0f + (seed * negative), 1.0f);
+    CATransform3D thirdScale = CATransform3DScale(CATransform3DIdentity, 1.0f + (seed * -negative), 1.0f + (seed * -negative), 1.0f);
     CATransform3D finalScale = CATransform3DIdentity;
     
     keyFrameShake.values = @[[NSValue valueWithCATransform3D:startingScale],
@@ -236,7 +233,7 @@ typedef enum {
         negative = 1;
     }
     
-    NSInteger offsetOne = (10 + 20 * seed) * negative;
+    NSInteger offsetOne = (NSUInteger)(10 + 20 * seed) * negative;
     NSInteger offsetTwo = -offsetOne;
     
     NSValue *startingOffset = [NSValue valueWithCGSize:CGSizeZero];
