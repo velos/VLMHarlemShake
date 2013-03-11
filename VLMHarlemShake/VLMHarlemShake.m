@@ -26,6 +26,10 @@ typedef enum {
 
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
+// we want to keep a strong reference to self so we can exist
+// while we're playing even if ARC doesn't want us to.
+@property (nonatomic, strong) VLMHarlemShake *selfAnchor;
+
 @property (nonatomic, assign, getter = isShaking) BOOL shaking;
 
 // finds views that we might want to shake.
@@ -70,6 +74,7 @@ typedef enum {
     
     if (!self.audioPlayer && error) {
         NSLog(@"ERROR: %@", error);
+        self.selfAnchor = nil;
         
         return nil;
     }
@@ -80,6 +85,9 @@ typedef enum {
 - (void)shakeWithCompletion:(void(^)())completion
 {
     if (self.shaking) return;
+    
+    // keep a strong reference to self;
+    self.selfAnchor = self;
     
     self.shaking = YES;
     self.completionBlock = completion;
@@ -272,6 +280,9 @@ typedef enum {
         
         if (self.completionBlock) self.completionBlock();
     }
+    
+    // release the anchor because we're done playing.
+    self.selfAnchor = nil;
 }
 
 @end
